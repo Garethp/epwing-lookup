@@ -1,0 +1,461 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <SccProjectName />
+    <SccLocalPath />
+    <ProjectGuid>{65BDA211-9B7A-4FDE-BA27-7D77F1BD4C6B}</ProjectGuid>
+    <WindowsTargetPlatformVersion>10.0.17134.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <PlatformToolset>v141</PlatformToolset>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>14.0.25431.1</_ProjectFileVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>.\Release\</OutDir>
+    <IntDir>.\Release\eb\</IntDir>
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>.\Debug\</OutDir>
+    <IntDir>.\Debug\eb\</IntDir>
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <Optimization>MaxSpeed</Optimization>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <AdditionalIncludeDirectories>.\portsrc;.\portsrc\eb;.\intl;..\zlib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;EB_BUILD_LIBRARY;HAVE_CONFIG_H;_EB;EB_EXPORTS;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <StringPooling>true</StringPooling>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <PrecompiledHeader />
+      <PrecompiledHeaderOutputFile>.\Release\eb/eb.pch</PrecompiledHeaderOutputFile>
+      <AssemblerListingLocation>.\Release\eb/</AssemblerListingLocation>
+      <ObjectFileName>.\Release\eb/</ObjectFileName>
+      <ProgramDataBaseFileName>.\Release\eb/</ProgramDataBaseFileName>
+      <WarningLevel>Level3</WarningLevel>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <CompileAs>Default</CompileAs>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>odbc32.lib;odbccp32.lib;Release/zlib.lib;ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>.\Release/eb.dll</OutputFile>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <ModuleDefinitionFile>.\portsrc\eb.def</ModuleDefinitionFile>
+      <ProgramDatabaseFile>.\Release/eb.pdb</ProgramDatabaseFile>
+      <SubSystem>Console</SubSystem>
+      <ImportLibrary>.\Release/eb.lib</ImportLibrary>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+    <Midl>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MkTypLibCompatible>true</MkTypLibCompatible>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <TargetEnvironment>Win32</TargetEnvironment>
+      <TypeLibraryName>.\Release/eb.tlb</TypeLibraryName>
+      <HeaderFileName />
+    </Midl>
+    <ResourceCompile>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0411</Culture>
+    </ResourceCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>.\portsrc;.\portsrc\eb;.\intl;..\zlib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;EB_BUILD_LIBRARY;HAVE_CONFIG_H;_EB;EB_EXPORTS;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <PrecompiledHeader />
+      <PrecompiledHeaderOutputFile>.\Debug\eb/eb.pch</PrecompiledHeaderOutputFile>
+      <AssemblerListingLocation>.\Debug\eb/</AssemblerListingLocation>
+      <ObjectFileName>.\Debug\eb/</ObjectFileName>
+      <ProgramDataBaseFileName>.\Debug\eb/</ProgramDataBaseFileName>
+      <WarningLevel>Level3</WarningLevel>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <CompileAs>Default</CompileAs>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;Debug/zlib.lib;ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>.\Debug/eb.dll</OutputFile>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <ModuleDefinitionFile>.\portsrc\eb.def</ModuleDefinitionFile>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <ProgramDatabaseFile>.\Debug/eb.pdb</ProgramDatabaseFile>
+      <SubSystem>Console</SubSystem>
+      <ImportLibrary>.\Debug/eb.lib</ImportLibrary>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+    <Midl>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MkTypLibCompatible>true</MkTypLibCompatible>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <TargetEnvironment>Win32</TargetEnvironment>
+      <TypeLibraryName>.\Debug/eb.tlb</TypeLibraryName>
+      <HeaderFileName />
+    </Midl>
+    <ResourceCompile>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0411</Culture>
+    </ResourceCompile>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\eb\eb\appendix.c">
+      <Optimization Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Disabled</Optimization>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">WIN32;_MBCS;EB_BUILD_LIBRARY;HAVE_CONFIG_H;_EB;EB_EXPORTS;_DEBUG</PreprocessorDefinitions>
+      <BasicRuntimeChecks Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">EnableFastChecks</BasicRuntimeChecks>
+      <Optimization Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">MaxSpeed</Optimization>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">WIN32;_MBCS;EB_BUILD_LIBRARY;HAVE_CONFIG_H;_EB;EB_EXPORTS;NDEBUG</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="..\eb\eb\appsub.c">
+      <Optimization Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Disabled</Optimization>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">WIN32;_MBCS;EB_BUILD_LIBRARY;HAVE_CONFIG_H;_EB;EB_EXPORTS;_DEBUG</PreprocessorDefinitions>
+      <BasicRuntimeChecks Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">EnableFastChecks</BasicRuntimeChecks>
+      <Optimization Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">MaxSpeed</Optimization>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">WIN32;_MBCS;EB_BUILD_LIBRARY;HAVE_CONFIG_H;_EB;EB_EXPORTS;NDEBUG</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="..\eb\eb\bcd.c">
+      <Optimization Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Disabled</Optimization>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">WIN32;_MBCS;EB_BUILD_LIBRARY;HAVE_CONFIG_H;_EB;EB_EXPORTS;_DEBUG</PreprocessorDefinitions>
+      <BasicRuntimeChecks Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">EnableFastChecks</BasicRuntimeChecks>
+      <Optimization Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">MaxSpeed</Optimization>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">WIN32;_MBCS;EB_BUILD_LIBRARY;HAVE_CONFIG_H;_EB;EB_EXPORTS;NDEBUG</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="..\eb\eb\binary.c">
+      <Optimization Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Disabled</Optimization>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">WIN32;_MBCS;EB_BUILD_LIBRARY;HAVE_CONFIG_H;_EB;EB_EXPORTS;_DEBUG</PreprocessorDefinitions>
+      <BasicRuntimeChecks Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">EnableFastChecks</BasicRuntimeChecks>
+      <Optimization Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">MaxSpeed</Optimization>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">WIN32;_MBCS;EB_BUILD_LIBRARY;HAVE_CONFIG_H;_EB;EB_EXPORTS;NDEBUG</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="..\eb\eb\bitmap.c">
+      <Optimization Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Disabled</Optimization>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">WIN32;_MBCS;EB_BUILD_LIBRARY;HAVE_CONFIG_H;_EB;EB_EXPORTS;_DEBUG</PreprocessorDefinitions>
+      <BasicRuntimeChecks Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">EnableFastChecks</BasicRuntimeChecks>
+      <Optimization Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">MaxSpeed</Optimization>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">WIN32;_MBCS;EB_BUILD_LIBRARY;HAVE_CONFIG_H;_EB;EB_EXPORTS;NDEBUG</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="..\eb\eb\book.c">
+      <Optimization Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Disabled</Optimization>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">WIN32;_MBCS;EB_BUILD_LIBRARY;HAVE_CONFIG_H;_EB;EB_EXPORTS;_DEBUG</PreprocessorDefinitions>
+      <BasicRuntimeChecks Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">EnableFastChecks</BasicRuntimeChecks>
+      <Optimization Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">MaxSpeed</Optimization>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">WIN32;_MBCS;EB_BUILD_LIBRARY;HAVE_CONFIG_H;_EB;EB_EXPORTS;NDEBUG</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="..\eb\eb\booklist.c">
+      <Optimization Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Disabled</Optimization>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">WIN32;_MBCS;EB_BUILD_LIBRARY;HAVE_CONFIG_H;_EB;EB_EXPORTS;_DEBUG</PreprocessorDefinitions>
+      <BasicRuntimeChecks Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">EnableFastChecks</BasicRuntimeChecks>
+      <Optimization Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">MaxSpeed</Optimization>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">WIN32;_MBCS;EB_BUILD_LIBRARY;HAVE_CONFIG_H;_EB;EB_EXPORTS;NDEBUG</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="..\eb\eb\copyright.c">
+      <Optimization Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Disabled</Optimization>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">WIN32;_MBCS;EB_BUILD_LIBRARY;HAVE_CONFIG_H;_EB;EB_EXPORTS;_DEBUG</PreprocessorDefinitions>
+      <BasicRuntimeChecks Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">EnableFastChecks</BasicRuntimeChecks>
+      <Optimization Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">MaxSpeed</Optimization>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">WIN32;_MBCS;EB_BUILD_LIBRARY;HAVE_CONFIG_H;_EB;EB_EXPORTS;NDEBUG</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="..\eb\eb\cross.c">
+      <Optimization Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Disabled</Optimization>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">WIN32;_MBCS;EB_BUILD_LIBRARY;HAVE_CONFIG_H;_EB;EB_EXPORTS;_DEBUG</PreprocessorDefinitions>
+      <BasicRuntimeChecks Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">EnableFastChecks</BasicRuntimeChecks>
+      <Optimization Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">MaxSpeed</Optimization>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">WIN32;_MBCS;EB_BUILD_LIBRARY;HAVE_CONFIG_H;_EB;EB_EXPORTS;NDEBUG</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="..\eb\eb\dummyin6.c">
+      <Optimization Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Disabled</Optimization>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">WIN32;_MBCS;EB_BUILD_LIBRARY;HAVE_CONFIG_H;_EB;EB_EXPORTS;_DEBUG</PreprocessorDefinitions>
+      <BasicRuntimeChecks Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">EnableFastChecks</BasicRuntimeChecks>
+      <Optimization Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">MaxSpeed</Optimization>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">WIN32;_MBCS;EB_BUILD_LIBRARY;HAVE_CONFIG_H;_EB;EB_EXPORTS;NDEBUG</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="..\eb\eb\eb.c">
+      <Optimization Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Disabled</Optimization>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">WIN32;_MBCS;EB_BUILD_LIBRARY;HAVE_CONFIG_H;_EB;EB_EXPORTS;_DEBUG</PreprocessorDefinitions>
+      <BasicRuntimeChecks Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">EnableFastChecks</BasicRuntimeChecks>
+      <Optimization Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">MaxSpeed</Optimization>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">WIN32;_MBCS;EB_BUILD_LIBRARY;HAVE_CONFIG_H;_EB;EB_EXPORTS;NDEBUG</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="..\eb\eb\ebnet.c">
+      <Optimization Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Disabled</Optimization>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">WIN32;_MBCS;EB_BUILD_LIBRARY;HAVE_CONFIG_H;_EB;EB_EXPORTS;_DEBUG</PreprocessorDefinitions>
+      <BasicRuntimeChecks Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">EnableFastChecks</BasicRuntimeChecks>
+      <Optimization Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">MaxSpeed</Optimization>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">WIN32;_MBCS;EB_BUILD_LIBRARY;HAVE_CONFIG_H;_EB;EB_EXPORTS;NDEBUG</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="..\eb\eb\endword.c">
+      <Optimization Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Disabled</Optimization>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">WIN32;_MBCS;EB_BUILD_LIBRARY;HAVE_CONFIG_H;_EB;EB_EXPORTS;_DEBUG</PreprocessorDefinitions>
+      <BasicRuntimeChecks Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">EnableFastChecks</BasicRuntimeChecks>
+      <Optimization Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">MaxSpeed</Optimization>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">WIN32;_MBCS;EB_BUILD_LIBRARY;HAVE_CONFIG_H;_EB;EB_EXPORTS;NDEBUG</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="..\eb\eb\error.c">
+      <Optimization Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Disabled</Optimization>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">WIN32;_MBCS;EB_BUILD_LIBRARY;HAVE_CONFIG_H;_EB;EB_EXPORTS;_DEBUG</PreprocessorDefinitions>
+      <BasicRuntimeChecks Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">EnableFastChecks</BasicRuntimeChecks>
+      <Optimization Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">MaxSpeed</Optimization>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">WIN32;_MBCS;EB_BUILD_LIBRARY;HAVE_CONFIG_H;_EB;EB_EXPORTS;NDEBUG</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="..\eb\eb\exactword.c">
+      <Optimization Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Disabled</Optimization>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">WIN32;_MBCS;EB_BUILD_LIBRARY;HAVE_CONFIG_H;_EB;EB_EXPORTS;_DEBUG</PreprocessorDefinitions>
+      <BasicRuntimeChecks Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">EnableFastChecks</BasicRuntimeChecks>
+      <Optimization Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">MaxSpeed</Optimization>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">WIN32;_MBCS;EB_BUILD_LIBRARY;HAVE_CONFIG_H;_EB;EB_EXPORTS;NDEBUG</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="..\eb\eb\filename.c">
+      <Optimization Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Disabled</Optimization>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">WIN32;_MBCS;EB_BUILD_LIBRARY;HAVE_CONFIG_H;_EB;EB_EXPORTS;_DEBUG</PreprocessorDefinitions>
+      <BasicRuntimeChecks Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">EnableFastChecks</BasicRuntimeChecks>
+      <Optimization Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">MaxSpeed</Optimization>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">WIN32;_MBCS;EB_BUILD_LIBRARY;HAVE_CONFIG_H;_EB;EB_EXPORTS;NDEBUG</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="..\eb\eb\font.c">
+      <Optimization Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Disabled</Optimization>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">WIN32;_MBCS;EB_BUILD_LIBRARY;HAVE_CONFIG_H;_EB;EB_EXPORTS;_DEBUG</PreprocessorDefinitions>
+      <BasicRuntimeChecks Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">EnableFastChecks</BasicRuntimeChecks>
+      <Optimization Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">MaxSpeed</Optimization>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">WIN32;_MBCS;EB_BUILD_LIBRARY;HAVE_CONFIG_H;_EB;EB_EXPORTS;NDEBUG</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="..\eb\eb\hook.c">
+      <Optimization Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Disabled</Optimization>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">WIN32;_MBCS;EB_BUILD_LIBRARY;HAVE_CONFIG_H;_EB;EB_EXPORTS;_DEBUG</PreprocessorDefinitions>
+      <BasicRuntimeChecks Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">EnableFastChecks</BasicRuntimeChecks>
+      <Optimization Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">MaxSpeed</Optimization>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">WIN32;_MBCS;EB_BUILD_LIBRARY;HAVE_CONFIG_H;_EB;EB_EXPORTS;NDEBUG</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="..\eb\eb\jacode.c">
+      <Optimization Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Disabled</Optimization>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">WIN32;_MBCS;EB_BUILD_LIBRARY;HAVE_CONFIG_H;_EB;EB_EXPORTS;_DEBUG</PreprocessorDefinitions>
+      <BasicRuntimeChecks Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">EnableFastChecks</BasicRuntimeChecks>
+      <Optimization Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">MaxSpeed</Optimization>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">WIN32;_MBCS;EB_BUILD_LIBRARY;HAVE_CONFIG_H;_EB;EB_EXPORTS;NDEBUG</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="..\eb\eb\keyword.c">
+      <Optimization Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Disabled</Optimization>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">WIN32;_MBCS;EB_BUILD_LIBRARY;HAVE_CONFIG_H;_EB;EB_EXPORTS;_DEBUG</PreprocessorDefinitions>
+      <BasicRuntimeChecks Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">EnableFastChecks</BasicRuntimeChecks>
+      <Optimization Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">MaxSpeed</Optimization>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">WIN32;_MBCS;EB_BUILD_LIBRARY;HAVE_CONFIG_H;_EB;EB_EXPORTS;NDEBUG</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="..\eb\eb\linebuf.c">
+      <Optimization Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Disabled</Optimization>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">WIN32;_MBCS;EB_BUILD_LIBRARY;HAVE_CONFIG_H;_EB;EB_EXPORTS;_DEBUG</PreprocessorDefinitions>
+      <BasicRuntimeChecks Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">EnableFastChecks</BasicRuntimeChecks>
+      <Optimization Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">MaxSpeed</Optimization>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">WIN32;_MBCS;EB_BUILD_LIBRARY;HAVE_CONFIG_H;_EB;EB_EXPORTS;NDEBUG</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="..\eb\eb\lock.c">
+      <Optimization Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Disabled</Optimization>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">WIN32;_MBCS;EB_BUILD_LIBRARY;HAVE_CONFIG_H;_EB;EB_EXPORTS;_DEBUG</PreprocessorDefinitions>
+      <BasicRuntimeChecks Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">EnableFastChecks</BasicRuntimeChecks>
+      <Optimization Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">MaxSpeed</Optimization>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">WIN32;_MBCS;EB_BUILD_LIBRARY;HAVE_CONFIG_H;_EB;EB_EXPORTS;NDEBUG</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="..\eb\eb\log.c">
+      <Optimization Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Disabled</Optimization>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">WIN32;_MBCS;EB_BUILD_LIBRARY;HAVE_CONFIG_H;_EB;EB_EXPORTS;_DEBUG</PreprocessorDefinitions>
+      <BasicRuntimeChecks Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">EnableFastChecks</BasicRuntimeChecks>
+      <Optimization Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">MaxSpeed</Optimization>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">WIN32;_MBCS;EB_BUILD_LIBRARY;HAVE_CONFIG_H;_EB;EB_EXPORTS;NDEBUG</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="..\eb\eb\match.c">
+      <Optimization Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Disabled</Optimization>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">WIN32;_MBCS;EB_BUILD_LIBRARY;HAVE_CONFIG_H;_EB;EB_EXPORTS;_DEBUG</PreprocessorDefinitions>
+      <BasicRuntimeChecks Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">EnableFastChecks</BasicRuntimeChecks>
+      <Optimization Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">MaxSpeed</Optimization>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">WIN32;_MBCS;EB_BUILD_LIBRARY;HAVE_CONFIG_H;_EB;EB_EXPORTS;NDEBUG</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="..\eb\eb\menu.c">
+      <Optimization Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Disabled</Optimization>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">WIN32;_MBCS;EB_BUILD_LIBRARY;HAVE_CONFIG_H;_EB;EB_EXPORTS;_DEBUG</PreprocessorDefinitions>
+      <BasicRuntimeChecks Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">EnableFastChecks</BasicRuntimeChecks>
+      <Optimization Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">MaxSpeed</Optimization>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">WIN32;_MBCS;EB_BUILD_LIBRARY;HAVE_CONFIG_H;_EB;EB_EXPORTS;NDEBUG</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="..\eb\eb\multi.c">
+      <Optimization Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Disabled</Optimization>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">WIN32;_MBCS;EB_BUILD_LIBRARY;HAVE_CONFIG_H;_EB;EB_EXPORTS;_DEBUG</PreprocessorDefinitions>
+      <BasicRuntimeChecks Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">EnableFastChecks</BasicRuntimeChecks>
+      <Optimization Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">MaxSpeed</Optimization>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">WIN32;_MBCS;EB_BUILD_LIBRARY;HAVE_CONFIG_H;_EB;EB_EXPORTS;NDEBUG</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="..\eb\eb\multiplex.c">
+      <Optimization Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Disabled</Optimization>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">WIN32;_MBCS;EB_BUILD_LIBRARY;HAVE_CONFIG_H;_EB;EB_EXPORTS;_DEBUG</PreprocessorDefinitions>
+      <BasicRuntimeChecks Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">EnableFastChecks</BasicRuntimeChecks>
+      <Optimization Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">MaxSpeed</Optimization>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">WIN32;_MBCS;EB_BUILD_LIBRARY;HAVE_CONFIG_H;_EB;EB_EXPORTS;NDEBUG</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="..\eb\eb\narwalt.c">
+      <Optimization Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Disabled</Optimization>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">WIN32;_MBCS;EB_BUILD_LIBRARY;HAVE_CONFIG_H;_EB;EB_EXPORTS;_DEBUG</PreprocessorDefinitions>
+      <BasicRuntimeChecks Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">EnableFastChecks</BasicRuntimeChecks>
+      <Optimization Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">MaxSpeed</Optimization>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">WIN32;_MBCS;EB_BUILD_LIBRARY;HAVE_CONFIG_H;_EB;EB_EXPORTS;NDEBUG</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="..\eb\eb\narwfont.c">
+      <Optimization Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Disabled</Optimization>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">WIN32;_MBCS;EB_BUILD_LIBRARY;HAVE_CONFIG_H;_EB;EB_EXPORTS;_DEBUG</PreprocessorDefinitions>
+      <BasicRuntimeChecks Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">EnableFastChecks</BasicRuntimeChecks>
+      <Optimization Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">MaxSpeed</Optimization>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">WIN32;_MBCS;EB_BUILD_LIBRARY;HAVE_CONFIG_H;_EB;EB_EXPORTS;NDEBUG</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="..\eb\eb\readtext.c">
+      <Optimization Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Disabled</Optimization>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">WIN32;_MBCS;EB_BUILD_LIBRARY;HAVE_CONFIG_H;_EB;EB_EXPORTS;_DEBUG</PreprocessorDefinitions>
+      <BasicRuntimeChecks Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">EnableFastChecks</BasicRuntimeChecks>
+      <Optimization Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">MaxSpeed</Optimization>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">WIN32;_MBCS;EB_BUILD_LIBRARY;HAVE_CONFIG_H;_EB;EB_EXPORTS;NDEBUG</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="..\eb\eb\search.c">
+      <Optimization Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Disabled</Optimization>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">WIN32;_MBCS;EB_BUILD_LIBRARY;HAVE_CONFIG_H;_EB;EB_EXPORTS;_DEBUG</PreprocessorDefinitions>
+      <BasicRuntimeChecks Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">EnableFastChecks</BasicRuntimeChecks>
+      <Optimization Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">MaxSpeed</Optimization>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">WIN32;_MBCS;EB_BUILD_LIBRARY;HAVE_CONFIG_H;_EB;EB_EXPORTS;NDEBUG</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="..\eb\eb\setword.c">
+      <Optimization Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Disabled</Optimization>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">WIN32;_MBCS;EB_BUILD_LIBRARY;HAVE_CONFIG_H;_EB;EB_EXPORTS;_DEBUG</PreprocessorDefinitions>
+      <BasicRuntimeChecks Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">EnableFastChecks</BasicRuntimeChecks>
+      <Optimization Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">MaxSpeed</Optimization>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">WIN32;_MBCS;EB_BUILD_LIBRARY;HAVE_CONFIG_H;_EB;EB_EXPORTS;NDEBUG</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="..\eb\eb\stopcode.c">
+      <Optimization Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Disabled</Optimization>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">WIN32;_MBCS;EB_BUILD_LIBRARY;HAVE_CONFIG_H;_EB;EB_EXPORTS;_DEBUG</PreprocessorDefinitions>
+      <BasicRuntimeChecks Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">EnableFastChecks</BasicRuntimeChecks>
+      <Optimization Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">MaxSpeed</Optimization>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">WIN32;_MBCS;EB_BUILD_LIBRARY;HAVE_CONFIG_H;_EB;EB_EXPORTS;NDEBUG</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="..\eb\eb\strcasecmp.c">
+      <Optimization Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Disabled</Optimization>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">WIN32;_MBCS;EB_BUILD_LIBRARY;HAVE_CONFIG_H;_EB;EB_EXPORTS;_DEBUG</PreprocessorDefinitions>
+      <BasicRuntimeChecks Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">EnableFastChecks</BasicRuntimeChecks>
+      <Optimization Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">MaxSpeed</Optimization>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">WIN32;_MBCS;EB_BUILD_LIBRARY;HAVE_CONFIG_H;_EB;EB_EXPORTS;NDEBUG</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="..\eb\eb\subbook.c">
+      <Optimization Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Disabled</Optimization>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">WIN32;_MBCS;EB_BUILD_LIBRARY;HAVE_CONFIG_H;_EB;EB_EXPORTS;_DEBUG</PreprocessorDefinitions>
+      <BasicRuntimeChecks Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">EnableFastChecks</BasicRuntimeChecks>
+      <Optimization Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">MaxSpeed</Optimization>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">WIN32;_MBCS;EB_BUILD_LIBRARY;HAVE_CONFIG_H;_EB;EB_EXPORTS;NDEBUG</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="..\eb\eb\text.c">
+      <Optimization Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Disabled</Optimization>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">WIN32;_MBCS;EB_BUILD_LIBRARY;HAVE_CONFIG_H;_EB;EB_EXPORTS;_DEBUG</PreprocessorDefinitions>
+      <BasicRuntimeChecks Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">EnableFastChecks</BasicRuntimeChecks>
+      <Optimization Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">MaxSpeed</Optimization>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">WIN32;_MBCS;EB_BUILD_LIBRARY;HAVE_CONFIG_H;_EB;EB_EXPORTS;NDEBUG</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="..\eb\eb\urlparts.c">
+      <Optimization Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Disabled</Optimization>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">WIN32;_MBCS;EB_BUILD_LIBRARY;HAVE_CONFIG_H;_EB;EB_EXPORTS;_DEBUG</PreprocessorDefinitions>
+      <BasicRuntimeChecks Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">EnableFastChecks</BasicRuntimeChecks>
+      <Optimization Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">MaxSpeed</Optimization>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">WIN32;_MBCS;EB_BUILD_LIBRARY;HAVE_CONFIG_H;_EB;EB_EXPORTS;NDEBUG</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="..\eb\eb\widealt.c">
+      <Optimization Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Disabled</Optimization>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">WIN32;_MBCS;EB_BUILD_LIBRARY;HAVE_CONFIG_H;_EB;EB_EXPORTS;_DEBUG</PreprocessorDefinitions>
+      <BasicRuntimeChecks Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">EnableFastChecks</BasicRuntimeChecks>
+      <Optimization Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">MaxSpeed</Optimization>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">WIN32;_MBCS;EB_BUILD_LIBRARY;HAVE_CONFIG_H;_EB;EB_EXPORTS;NDEBUG</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="..\eb\eb\widefont.c">
+      <Optimization Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Disabled</Optimization>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">WIN32;_MBCS;EB_BUILD_LIBRARY;HAVE_CONFIG_H;_EB;EB_EXPORTS;_DEBUG</PreprocessorDefinitions>
+      <BasicRuntimeChecks Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">EnableFastChecks</BasicRuntimeChecks>
+      <Optimization Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">MaxSpeed</Optimization>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">WIN32;_MBCS;EB_BUILD_LIBRARY;HAVE_CONFIG_H;_EB;EB_EXPORTS;NDEBUG</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="..\eb\eb\word.c">
+      <Optimization Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Disabled</Optimization>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">WIN32;_MBCS;EB_BUILD_LIBRARY;HAVE_CONFIG_H;_EB;EB_EXPORTS;_DEBUG</PreprocessorDefinitions>
+      <BasicRuntimeChecks Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">EnableFastChecks</BasicRuntimeChecks>
+      <Optimization Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">MaxSpeed</Optimization>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">WIN32;_MBCS;EB_BUILD_LIBRARY;HAVE_CONFIG_H;_EB;EB_EXPORTS;NDEBUG</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="..\eb\eb\zio.c">
+      <Optimization Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Disabled</Optimization>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">WIN32;_MBCS;EB_BUILD_LIBRARY;HAVE_CONFIG_H;_EB;EB_EXPORTS;_DEBUG</PreprocessorDefinitions>
+      <BasicRuntimeChecks Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">EnableFastChecks</BasicRuntimeChecks>
+      <Optimization Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">MaxSpeed</Optimization>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">WIN32;_MBCS;EB_BUILD_LIBRARY;HAVE_CONFIG_H;_EB;EB_EXPORTS;NDEBUG</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="portsrc\dirent.c">
+      <Optimization Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Disabled</Optimization>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">WIN32;_MBCS;EB_BUILD_LIBRARY;HAVE_CONFIG_H;_EB;EB_EXPORTS;_DEBUG</PreprocessorDefinitions>
+      <BasicRuntimeChecks Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">EnableFastChecks</BasicRuntimeChecks>
+      <Optimization Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">MaxSpeed</Optimization>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">WIN32;_MBCS;EB_BUILD_LIBRARY;HAVE_CONFIG_H;_EB;EB_EXPORTS;NDEBUG</PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="portsrc\localedir.c">
+      <Optimization Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Disabled</Optimization>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">WIN32;_MBCS;EB_BUILD_LIBRARY;HAVE_CONFIG_H;_EB;EB_EXPORTS;_DEBUG</PreprocessorDefinitions>
+      <BasicRuntimeChecks Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">EnableFastChecks</BasicRuntimeChecks>
+      <Optimization Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">MaxSpeed</Optimization>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">WIN32;_MBCS;EB_BUILD_LIBRARY;HAVE_CONFIG_H;_EB;EB_EXPORTS;NDEBUG</PreprocessorDefinitions>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="portsrc\eb.def" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="portsrc\eb.rc">
+      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">portsrc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">portsrc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="intl.vcxproj">
+      <Project>{4269bd79-1391-472b-8b54-93883120c4ee}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="zlib.vcxproj">
+      <Project>{a5fd576e-1e8c-4fd4-a49a-661bfe741d34}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

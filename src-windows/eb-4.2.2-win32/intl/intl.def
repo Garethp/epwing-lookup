@@ -1,0 +1,12 @@
+EXPORTS
+	__bindings
+	__current_domainname
+	gettext
+	dgettext
+	dcgettext
+	ngettext
+	dngettext
+	dcngettext
+	textdomain
+	bindtextdomain
+	bind_textdomain_codeset

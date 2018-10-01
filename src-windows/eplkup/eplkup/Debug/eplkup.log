@@ -1,0 +1,20 @@
+﻿  gaiji_table_wadai5.c
+  gaiji_table_snmkg99.c
+  gaiji_table_meikyou.c
+  gaiji_table_meikyojj.c
+  gaiji_table_kojien.c
+  gaiji_table_genius.c
+  gaiji_table_daijisen.c
+  gaiji_table_daijirin.c
+  gaiji_table_chujiten.c
+  eplkup_utils.c
+  eplkup_hook_handler.c
+  eplkup_gaiji.c
+  eplkup_font.c
+  eplkup_data.c
+  eplkup.c
+c:\users\gareth\webstormprojects\myfirstextension\epwing\src-windows\eplkup\eplkup\eplkup.c(669): warning C4018: '<': signed/unsigned mismatch
+  base64.c
+  Generating Code...
+base64.obj : warning LNK4075: ignoring '/EDITANDCONTINUE' due to '/SAFESEH' specification
+  eplkup.vcxproj -> C:\Users\Gareth\WebstormProjects\myFirstExtension\epwing\src-windows\eplkup\Debug\eplkup.exe

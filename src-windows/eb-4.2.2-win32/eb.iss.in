@@ -1,0 +1,53 @@
+;
+; Inno Setup Script for EB Library for Windows.
+;
+[Setup]
+AppName=EB Library
+AppVerName=EB Library @VERSION@
+AppPublisher=Motoyuki Kasahara
+AppPublisherURL=http://www.sra.co.jp/people/m-kasahr/eb/
+DefaultDirName={pf}\EB Library
+DefaultGroupName=EB Library
+OutputDir=.
+OutputBaseFileName=eb-@VERSION@-win32
+AllowNoIcons=yes
+LicenseFile=COPYING.txt
+
+[Languages]
+Name: "ja"; MessagesFile: "Japanese.isl";
+
+[Files]
+Source: "msvcr71.dll"; DestDir: "{app}\bin";
+Source: "Release\eb.dll"; DestDir: "{app}\bin";
+Source: "Release\ebfont.exe"; DestDir: "{app}\bin";
+Source: "Release\ebinfo.exe"; DestDir: "{app}\bin";
+Source: "Release\ebrefile.exe"; DestDir: "{app}\bin";
+Source: "Release\ebstopcode.exe"; DestDir: "{app}\bin";
+Source: "Release\ebzip.exe"; DestDir: "{app}\bin";
+Source: "Release\ebzip.exe"; DestDir: "{app}\bin"; DestName: "ebunzip.exe";
+Source: "Release\ebzip.exe"; DestDir: "{app}\bin"; DestName: "ebzipinfo.exe";
+Source: "Release\eb.lib"; DestDir: "{app}\lib";
+Source: "Release\intl.lib"; DestDir: "{app}\lib";
+Source: "Release\iconv.lib"; DestDir: "{app}\lib";
+Source: "Release\zlib.lib"; DestDir: "{app}\lib";
+Source: "..\eb\eb\appendix.h"; DestDir: "{app}\include\eb";
+Source: "..\eb\eb\binary.h"; DestDir: "{app}\include\eb";
+Source: "..\eb\eb\booklist.h"; DestDir: "{app}\include\eb";
+Source: "..\eb\eb\defs.h"; DestDir: "{app}\include\eb";
+Source: "..\eb\eb\eb.h"; DestDir: "{app}\include\eb";
+Source: "..\eb\eb\error.h"; DestDir: "{app}\include\eb";
+Source: "..\eb\eb\font.h"; DestDir: "{app}\include\eb";
+Source: "portsrc\eb\sysdefs.h"; DestDir: "{app}\include\eb";
+Source: "..\eb\eb\text.h"; DestDir: "{app}\include\eb";
+Source: "..\eb\eb\zio.h"; DestDir: "{app}\include\eb";
+Source: "portsrc\config.h"; DestDir: "{app}\include\eb";
+Source: "..\zlib\zconf.h"; DestDir: "{app}\include";
+Source: "..\zlib\zlib.h"; DestDir: "{app}\include";
+Source: "intl\libintl.h"; DestDir: "{app}\include";
+Source: "iconv\iconv.h"; DestDir: "{app}\include";
+Source: "iconv\libcharset.h"; DestDir: "{app}\include";
+Source: "po\eb.mo"; DestDir: "{app}\locale\Japanese_Japan.932\LC_MESSAGES";
+Source: "po\ebutils.mo"; DestDir: "{app}\locale\Japanese_Japan.932\LC_MESSAGES";
+Source: "doc\*.html"; DestDir: "{app}\doc";
+Source: "doc\*.css"; DestDir: "{app}\doc";
+Source: "COPYING.txt"; DestDir: "{app}";
