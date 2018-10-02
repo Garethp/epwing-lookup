@@ -1,6 +1,17 @@
 #!/usr/bin/env bash
 
-os_path="linux"
+os_path=${1:-linux}
+action=${2:-install}
+
+if [ "$os_path" = "uninstall" ] || [ "$os_path" = "remove" ]; then
+    action="$os_path"
+    os_path="linux"
+fi
+
+if [ "$action" = "remove" ]; then
+    action="uninstall"
+fi
+
 name="eplkup"
 
 if [ ! -f "./bin/$os_path/eplkup" ]; then
@@ -9,8 +20,16 @@ if [ ! -f "./bin/$os_path/eplkup" ]; then
 fi
 
 if [ ! -f ./manifest/manifest-unix.dist.json ]; then
-    echo "Manifest template not found"
-    exit 1
+    echo "Manifest templateARG1=${1:-foo}
+ARG2=${2:-bar}
+ARG3=${3:-1}
+ARG4=${4:-$(date)}
+ not found"
+    exit 1ARG1=${1:-foo}
+ARG2=${2:-bar}
+ARG3=${3:-1}
+ARG4=${4:-$(date)}
+
 fi
 
 
@@ -29,13 +48,24 @@ place_manifest_in_first_folder () {
 
             if [ "$browser" = "chrome" ]; then
                 sed "s|{EPWING-PATH}|$PWD/bin/$os_path/eplkup|" manifest/manifest-unix.dist.json | \
-                sed "s|allowed_extensions|allowed_origins|" \
+                sed "s|\"allowed_extensions\".*$||" \
                 > "${folder}/${name}.json"
             else
-                sed "s|{EPWING-PATH}|$PWD/bin/$os_path/eplkup|" manifest/manifest-unix.dist.json \
+                sed "s|{EPWING-PATH}|$PWD/bin/$os_path/eplkup|" manifest/manifest-unix.dist.json | \
+                sed "s|\"allowed_origins\".*$||" \
                 > "${folder}/${name}.json"
             fi
             break
+        fi
+    done
+}
+
+remove_manifest_from_folders() {
+    foldersToCheck=("$@")
+    for folder in "${foldersToCheck[@]}"
+    do
+        if [ -f "${folder}/${name}.json" ]; then
+            rm "${folder}/${name}.json"
         fi
     done
 }
@@ -73,7 +103,12 @@ declare -a firefoxFolders=(
     "/usr/share/mozilla/native-messaging-hosts/"
 )
 
-place_manifest_in_first_folder "${chromeFolders[@]}" "chrome"
-place_manifest_in_first_folder "${chromiumFolders[@]}" "chrome"
-place_manifest_in_first_folder "${firefoxFolders[@]}" "firefox"
-
+if [ "$action" = 'install' ]; then
+    place_manifest_in_first_folder "${chromeFolders[@]}" "chrome"
+    place_manifest_in_first_folder "${chromiumFolders[@]}" "chrome"
+    place_manifest_in_first_folder "${firefoxFolders[@]}" "firefox"
+elif [ "$action" = 'uninstall' ]; then
+    remove_manifest_from_folders "${chromeFolders[@]}"
+    remove_manifest_from_folders "${chromiumFolders[@]}"
+    remove_manifest_from_folders "${firefoxFolders[@]}"
+fi
