@@ -1,5 +1,8 @@
 ## Changelog
 
+#### Version 1.0.2
+ * Statically linking when compiling for Windows
+
 #### Version 1.0.1
  * Added executable permissions
  * Added zip file
